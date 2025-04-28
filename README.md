@@ -13,4 +13,6 @@
     Si on veut modifier l'apparence on peut utiliser par exemple .t-dark 
 
 
--Utilisation de l'API fetch pour recupérer les données au chargement de la page et au clique sur l'icone actualiser.
+-Utilisation de l'API pokemon pour recupérer les données au chargement de la page et au clique sur l'icone actualiser.
+
+-https://pokeapi.co/api/v2/pokemon/
