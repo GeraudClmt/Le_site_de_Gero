@@ -11,3 +11,6 @@
     Pour un élément dans les layouts on peut par exemple faire .l-container
     Pour les modules on le nomme comme le module
     Si on veut modifier l'apparence on peut utiliser par exemple .t-dark 
+
+
+-Utilisation de l'API fetch pour recupérer les données au chargement de la page et au clique sur l'icone actualiser.
