@@ -1,13 +1,12 @@
 //=============> Les variables <=============
-
+const nbDeFeeds = 5;
 //Recupère l'acces au body du html
-let main = document.querySelector("main");
+let div = document.getElementById("feeds");
 
 //Creation d'un objet qui contient une liste de post
 const postBlague = {
     listeFeed: [],
     addpost(titre, type, question, reponse) {
-        console.log("addpost", titre)
         this.listeFeed.push({ titre, type, question, reponse })
     },
     affichageDesFeeds(){
@@ -15,8 +14,8 @@ const postBlague = {
         for (const elementTableau of this.listeFeed) {
             feedsHtml = retourneUnFeed(elementTableau, feedsHtml)
         }
-        //Envoie du html au main
-        main.innerHTML = feedsHtml;
+        //Envoie du html dans la div feeds
+        div.innerHTML = feedsHtml;
     },
 };
 //=============> Fin Variables <=============
@@ -26,7 +25,7 @@ const postBlague = {
 
 
 //Appel de la fonction pour remplir le nombre de blague passé en paramètre
-remplirTableauPost(20);
+remplirTableauPost(nbDeFeeds);
 console.log(postBlague.listeFeed);
 
 
@@ -61,6 +60,11 @@ function retourneUnFeed(feedObjet, feedHtml) {
         </div>
     `;
     return divPost;
+}
+
+function feedRefresh(){
+    postBlague.listeFeed = [];
+    remplirTableauPost(nbDeFeeds);
 }
 
 //=============> Fin Fonctions <=============
