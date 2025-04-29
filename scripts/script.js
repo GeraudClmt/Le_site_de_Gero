@@ -1,7 +1,7 @@
 //=============> Les variables <=============
 const nbDeFeeds = 5;
 //Recupère l'acces au body du html
-let div = document.getElementById("feeds");
+let div = document.getElementById("listeFeeds");
 
 //Creation d'un objet qui contient une liste de post
 const postBlague = {
