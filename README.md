@@ -16,3 +16,7 @@
 -Utilisation de l'API pokemon pour recupérer les données au chargement de la page et au clique sur l'icone actualiser.
 
 -https://pokeapi.co/api/v2/pokemon/
+
+Liens utile :
+
+utilisation de fetch ====>   https://web.iamvdo.me/js/ajax/
