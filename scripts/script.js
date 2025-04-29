@@ -54,7 +54,7 @@ function retourneUnFeed(feedObjet, feedHtml) {
     let divPost = `
         ${feedHtml}
         <div class = "feed">
-            <h1>${feedObjet.titre}</h1>
+            <h2>${feedObjet.titre}</h2>
             <h3>${feedObjet.type}</h3>
             <p>${feedObjet.question}</p>
             <p>${feedObjet.reponse}</p>
