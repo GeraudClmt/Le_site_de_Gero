@@ -1,5 +1,5 @@
 //=============> Les variables <=============
-const nbDeFeeds = 5;
+const nbDeFeeds = 6;
 //Recupère l'acces au body du html
 let div = document.getElementById("listeFeeds");
 
