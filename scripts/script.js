@@ -11,7 +11,7 @@ const postBlague = {
     addpost(titre, type, question, reponse) {
         this.listeFeed.push({ titre, type, question, reponse })
     },
-    affichageDesFeeds(){
+    affichageDesFeeds() {
         let feedsHtml = '';
         for (const elementTableau of this.listeFeed) {
             feedsHtml = retourneUnFeed(elementTableau, feedsHtml)
@@ -64,32 +64,50 @@ function retourneUnFeed(feedObjet, feedHtml) {
     return divPost;
 }
 
-function feedRefresh(){
+function feedRefresh() {
     postBlague.listeFeed = [];
     remplirTableauPost(nbDeFeeds);
 }
 
 //Fonction qui géré la fonction caché du menu
-function cacherMenu(){
-    if(menuIsHidden){
+function cacherMenu() {
+    if (menuIsHidden) {
         menuDeroulant.innerHTML = `
                                     <a class="elementMenu" href="index.html">Feed</a>
                                     <a class="elementMenu" href="gallery.html">Gallery</a>
                                     <a class="elementMenu" href="jeux.html">Jeux</a>
                                 `;
         menuIsHidden = false;
-    }else{
+    } else {
         menuDeroulant.innerHTML = ``;
         menuIsHidden = true;
     }
-    
+
 }
 //Fonction qui écoute si on click sur la page pour ferme le menu
 const bouttonMenu = document.getElementById("btnMenu");
-document.addEventListener("click", function(event){
-    if(!bouttonMenu.contains(event.target)){
+document.addEventListener("click", function (event) {
+    if (!bouttonMenu.contains(event.target)) {
         menuDeroulant.innerHTML = ``;
         menuIsHidden = true;
     }
-} )
+})
+
+//Fonction qui recupere les élements du formulaire et les mets dans le tableau
+function pullFormulaire() {
+    const titre = document.getElementById("titre");
+    const type = document.getElementById("type");
+    const question = document.getElementById("question");
+    const reponse = document.getElementById("reponse");
+
+    if (titre.value != '' && type.value != '' && question.value != '' && reponse.value) {
+        postBlague.addpost(titre.value, type.value, question.value, reponse.value);
+        titre.value = '';
+        type.value = '';
+        question.value = '';
+        reponse.value = '';
+
+        postBlague.affichageDesFeeds();
+    }
+}
 //=============> Fin Fonctions <=============

@@ -18,7 +18,22 @@
                     src="assets/refresh.png" alt="logo refresh"></button>
         </div>
 
+        <div class="containerFormulaire">
+            <form class="formulaire">
+                <label for="titre">Titre :</label>
+                <input type="text" name="titre" id="titre" placeholder="Titre" required>
+                <label for="type">Type :</label>
+                <input type="text" name="type" id="type" placeholder="Type" required>
+                <label for="question">Question :</label>
+                <textarea name="question" id="question" cols="30" rows="3" placeholder="Question" required></textarea>
+                <label for="reponse">Reponse :</label>
+                <textarea name="reponse" id="reponse" cols="30" rows="3" placeholder="Reponse" required></textarea>
+
+                <input type="submit" onclick="pullFormulaire()" value="Envoyer">
+            </form>
+        </div>
         <div id="listeFeeds">
+            <!--Ici sera placé la liste des feeds-->
         </div>
     </main>
 </body>
