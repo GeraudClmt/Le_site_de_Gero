@@ -70,12 +70,12 @@ function feedRefresh(){
 }
 
 //Fonction qui géré la fonction caché du menu
-function isHidden(){
+function cacherMenu(){
     if(menuIsHidden){
         menuDeroulant.innerHTML = `
                                     <a class="elementMenu" href="index.html">Feed</a>
-                                    <a class="elementMenu" href="pages/gallery.html">Gallery</a>
-                                    <a class="elementMenu" href="pages/jeux.html">Jeux</a>
+                                    <a class="elementMenu" href="gallery.html">Gallery</a>
+                                    <a class="elementMenu" href="jeux.html">Jeux</a>
                                 `;
         menuIsHidden = false;
     }else{
@@ -84,4 +84,12 @@ function isHidden(){
     }
     
 }
+//Fonction qui écoute si on click sur la page pour ferme le menu
+const bouttonMenu = document.getElementById("btnMenu");
+document.addEventListener("click", function(event){
+    if(!bouttonMenu.contains(event.target)){
+        menuDeroulant.innerHTML = ``;
+        menuIsHidden = true;
+    }
+} )
 //=============> Fin Fonctions <=============
