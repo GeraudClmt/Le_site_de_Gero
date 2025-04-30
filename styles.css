@@ -33,8 +33,11 @@ h1{
     padding: 0.2em;
     background-color: white;
     border: solid 1px black;
-}
 
+    position: relative;
+    animation: 0.5s appari;
+
+}
 
 
 .containerBtnRefresh{
@@ -59,7 +62,14 @@ h1{
     box-shadow: 5px 10px 5px black;
 }
 
-
+@keyframes appari {
+    from{
+        top: -0.3em;
+    }
+    to{
+        top : 0em;
+    }
+}
 
 
 .logo{
