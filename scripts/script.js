@@ -1,15 +1,16 @@
 //=============> Les variables <=============
-const nbDeFeeds = 6;
+const nbDeFeeds = 5;
 //Recupère l'acces au body du html
 let div = document.getElementById("listeFeeds");
 let menuDeroulant = document.getElementById("menuDeroulant");
 let menuIsHidden = true;
 
+
 //Creation d'un objet qui contient une liste de post
 const postBlague = {
     listeFeed: [],
-    addpost(titre, type, question, reponse) {
-        this.listeFeed.push({ titre, type, question, reponse })
+    addpost(titre, type, question, reponse, personal) {
+        this.listeFeed.push({ titre, type, question, reponse, personal })
     },
     affichageDesFeeds() {
         let feedsHtml = '';
@@ -28,7 +29,6 @@ const postBlague = {
 
 //Appel de la fonction pour remplir le nombre de blague passé en paramètre
 remplirTableauPost(nbDeFeeds);
-console.log(postBlague.listeFeed);
 
 
 
@@ -44,7 +44,7 @@ function remplirTableauPost(nbDeBlagues) {
                 return resultat.json();
             })
             .then(function (resultat) {
-                postBlague.addpost(resultat.category, resultat.type, resultat.setup, resultat.delivery);
+                postBlague.addpost(resultat.category, resultat.type, resultat.setup, resultat.delivery, false);
                 postBlague.affichageDesFeeds();
             })
     }
@@ -65,7 +65,11 @@ function retourneUnFeed(feedObjet, feedHtml) {
 }
 
 function feedRefresh() {
-    postBlague.listeFeed = [];
+    for(const index in postBlague.listeFeed){
+        if(postBlague.listeFeed[index].personal == false){
+            postBlague.listeFeed.splice(index, 1);
+        }
+    }
     remplirTableauPost(nbDeFeeds);
 }
 
@@ -101,7 +105,9 @@ function pullFormulaire() {
     const reponse = document.getElementById("reponse");
 
     if (titre.value != '' && type.value != '' && question.value != '' && reponse.value) {
-        postBlague.addpost(titre.value, type.value, question.value, reponse.value);
+        postBlague.addpost(titre.value, type.value, question.value, reponse.value, true);
+
+        //Reset les values des inputs
         titre.value = '';
         type.value = '';
         question.value = '';
