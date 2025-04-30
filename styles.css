@@ -39,7 +39,26 @@ h1{
 
 }
 
+.containerFormulaire{
+    display: flex;
+}
+.formulaire{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    background-color: #fff7d6;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px #00c2ac;
+}
+.formulaire *{
+    margin: 0.2em;
+}
 
+textarea{
+    resize: none;
+}
 .containerBtnRefresh{
     display: flex;
     justify-content: end;
@@ -86,6 +105,9 @@ h1{
     }
     main{
         padding: 0.5em;
+    }
+    .formulaire{
+        width: 30%;
     }
     .feed{
         margin: 1em 10em;
