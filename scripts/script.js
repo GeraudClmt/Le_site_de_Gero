@@ -2,6 +2,8 @@
 const nbDeFeeds = 6;
 //Recupère l'acces au body du html
 let div = document.getElementById("listeFeeds");
+let menuDeroulant = document.getElementById("menuDeroulant");
+let menuIsHidden = true;
 
 //Creation d'un objet qui contient une liste de post
 const postBlague = {
@@ -67,4 +69,19 @@ function feedRefresh(){
     remplirTableauPost(nbDeFeeds);
 }
 
+//Fonction qui géré la fonction caché du menu
+function isHidden(){
+    if(menuIsHidden){
+        menuDeroulant.innerHTML = `
+                                    <a class="elementMenu" href="index.html">Feed</a>
+                                    <a class="elementMenu" href="pages/gallery.html">Gallery</a>
+                                    <a class="elementMenu" href="pages/jeux.html">Jeux</a>
+                                `;
+        menuIsHidden = false;
+    }else{
+        menuDeroulant.innerHTML = ``;
+        menuIsHidden = true;
+    }
+    
+}
 //=============> Fin Fonctions <=============
