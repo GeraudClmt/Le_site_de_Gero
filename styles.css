@@ -59,7 +59,7 @@ h1{
     width: 100%;
     background-color: #fff7d6;
     border-radius: 10px;
-    box-shadow: 5px 10px 5px black;
+    box-shadow: 5px 10px 5px #00c2ac;
 }
 
 @keyframes appari {
