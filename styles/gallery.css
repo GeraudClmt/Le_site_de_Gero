@@ -1,0 +1,14 @@
+
+#galerie{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.imageGalerie{
+    width: 30%;
+    height: 20em;
+    margin: 0.5em;
+    border-radius: 15px;
+    object-fit: cover;
+}
