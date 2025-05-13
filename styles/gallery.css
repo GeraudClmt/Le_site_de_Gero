@@ -1,4 +1,6 @@
-
+main{
+    position: relative;
+}
 #galerie{
     display: flex;
     justify-content: center;
@@ -12,6 +14,14 @@
     border-radius: 15px;
     object-fit: cover;
     max-width: 1000px;
+}
+#formulaireAjout{
+    background-color: #00c2ac;
+    padding: 1em;
+    border-radius: 15px;
+    position: absolute;
+    right: 50%;
+    transform: translate(+50%, -0);
 }
 
 @media screen and (min-width: 1000px){

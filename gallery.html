@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galerie</title>
     <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="assets/Logo.png" type="image/x-icon">
     <link href="./styles/gallery.css" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <script src="scripts/header.js"></script>
@@ -15,6 +18,11 @@
         <div>
             <button type="button" id="btnMosaique" onclick="tailleMosaique()">Mosaïque</button>
             <button type="button" id="btnColonne" onclick="tailleColonne()">Colonne</button>
+            <button type="button" id="btnAjouter" onclick="formulaireAjouterPhoto()">Ajouter</button>
+            <button type="button" id="btnAjouter" onclick="suppressionPhoto()">Tous supprimer</button>
+        <div id="formulaire">
+            
+        </div>
         </div>
         <div id="galerie">
             <script src="scripts/recuperationPhoto.js"></script>
@@ -23,4 +31,5 @@
 </body>
 <script src="scripts/bouttonsGalerie.js"></script>
 <script src="scripts/script.js"></script>
+
 </html>

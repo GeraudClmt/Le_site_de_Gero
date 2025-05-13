@@ -13,14 +13,20 @@ const postBlague = {
         this.listeFeed.push({ titre, type, question, reponse, personal })
     },
     affichageDesFeeds() {
-        let feedsHtml = '';
-        for (const elementTableau of this.listeFeed) {
-            feedsHtml = retourneUnFeed(elementTableau, feedsHtml)
+        try {
+            let feedsHtml = '';
+            for (const elementTableau of this.listeFeed) {
+                feedsHtml = retourneUnFeed(elementTableau, feedsHtml)
+            }
+            //Envoie du html dans la div feeds
+            div.innerHTML = feedsHtml;
         }
-        //Envoie du html dans la div feeds
-        div.innerHTML = feedsHtml;
+        catch (error) {
+
+        }
     },
-};
+}
+
 //=============> Fin Variables <=============
 
 
@@ -47,6 +53,10 @@ function remplirTableauPost(nbDeBlagues) {
                 postBlague.addpost(resultat.category, resultat.type, resultat.setup, resultat.delivery, false);
                 postBlague.affichageDesFeeds();
             })
+            .catch((error) => {
+                console.log("ERREUR ", error);
+            });
+
     }
 }
 
@@ -65,8 +75,8 @@ function retourneUnFeed(feedObjet, feedHtml) {
 }
 
 function feedRefresh() {
-    for(const index in postBlague.listeFeed){
-        if(postBlague.listeFeed[index].personal == false){
+    for (const index in postBlague.listeFeed) {
+        if (postBlague.listeFeed[index].personal == false) {
             postBlague.listeFeed.splice(index, 1);
         }
     }
