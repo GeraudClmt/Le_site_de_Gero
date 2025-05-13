@@ -15,6 +15,11 @@ main{
     object-fit: cover;
     max-width: 1000px;
 }
+.opacitySurvol:hover{
+    opacity: 20%;
+    cursor: not-allowed;
+}
+
 #formulaireAjout{
     background-color: #00c2ac;
     padding: 1em;
