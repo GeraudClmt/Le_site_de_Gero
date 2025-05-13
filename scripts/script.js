@@ -5,6 +5,9 @@ let div = document.getElementById("listeFeeds");
 let menuDeroulant = document.getElementById("menuDeroulant");
 let menuIsHidden = true;
 
+//localStorage.setItem("feeds", JSON.stringify([{ titre: "test1", type: "test", question: "test", reponse: "test", personal: true }, { titre: "test", type: "test", question: "test", reponse: "test", personal: true }]))
+let storageFeeds = JSON.parse(localStorage.getItem("feeds"));
+
 
 //Creation d'un objet qui contient une liste de post
 const postBlague = {
@@ -12,11 +15,10 @@ const postBlague = {
     addpost(titre, type, question, reponse, personal) {
         this.listeFeed.push({ titre, type, question, reponse, personal })
 
-
     },
-    supPost(title){
-        for(const i in this.listeFeed){
-            if (this.listeFeed[i].titre == title){
+    supPost(title) {
+        for (const i in this.listeFeed) {
+            if (this.listeFeed[i].titre == title) {
                 this.listeFeed.splice(i, 1);
             }
         }
@@ -38,6 +40,14 @@ const postBlague = {
 //=============> Fin Variables <=============
 
 
+if (!storageFeeds) {
+    storageFeeds = [];
+}
+else {
+    for (const element of storageFeeds) {
+        postBlague.addpost(element.titre, element.type, element.question, element.reponse, element.personal)
+    }
+}
 
 
 
@@ -139,6 +149,16 @@ function pullFormulaire() {
     if (titre.value != '' && type.value != '' && question.value != '' && reponse.value) {
         postBlague.addpost(titre.value, type.value, question.value, reponse.value, true);
 
+        //Ajout au localStorage
+        storageFeeds = JSON.parse(localStorage.getItem("feeds"));
+        if (!storageFeeds) {
+            storageFeeds = [];
+        }
+        const tableau = { titre: titre.value, type: type.value, question: question.value, reponse: reponse.value, personal: true }
+        storageFeeds.push(tableau)
+        localStorage.setItem("feeds", JSON.stringify(storageFeeds));
+
+
         //Reset les values des inputs
         titre.value = '';
         type.value = '';
@@ -146,18 +166,29 @@ function pullFormulaire() {
         reponse.value = '';
 
         postBlague.affichageDesFeeds();
+
+
     }
 }
 
-document.addEventListener("click", function (event) {
-    const element = event.target;
-
-
-})
-
-function supParent(id){
+function supParent(id) {
     const element = document.getElementById(id);
+    
+
+    //Supprime dans le storage
+    storageFeeds = JSON.parse(localStorage.getItem("feeds"));
+    console.log(storageFeeds);
+    console.log(id);
+    for (const element of Object.keys(storageFeeds)){
+        if(storageFeeds[element].titre == id){
+            console.log("trouvé", element)
+        }
+    }
+    localStorage.setItem("feeds", JSON.stringify(storageFeeds));
+
     element.remove();
     postBlague.supPost(id);
+    
+
 }
 //=============> Fin Fonctions <=============
