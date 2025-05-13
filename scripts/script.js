@@ -1,5 +1,5 @@
 //=============> Les variables <=============
-const nbDeFeeds = 5;
+const nbDeFeeds = 6;
 //Recupère l'acces au body du html
 let div = document.getElementById("listeFeeds");
 let menuDeroulant = document.getElementById("menuDeroulant");
@@ -11,6 +11,15 @@ const postBlague = {
     listeFeed: [],
     addpost(titre, type, question, reponse, personal) {
         this.listeFeed.push({ titre, type, question, reponse, personal })
+
+
+    },
+    supPost(title){
+        for(const i in this.listeFeed){
+            if (this.listeFeed[i].titre == title){
+                this.listeFeed.splice(i, 1);
+            }
+        }
     },
     affichageDesFeeds() {
         try {
@@ -26,7 +35,6 @@ const postBlague = {
         }
     },
 }
-
 //=============> Fin Variables <=============
 
 
@@ -71,6 +79,20 @@ function retourneUnFeed(feedObjet, feedHtml) {
             <p>${feedObjet.reponse}</p>
         </div>
     `;
+    if (feedObjet.personal) {
+        divPost = `
+        ${feedHtml}
+        <div class = "feed" id=${feedObjet.titre} >
+            <h2>${feedObjet.titre}</h2>
+            <h3>${feedObjet.type}</h3>
+            <p>${feedObjet.question}</p>
+            <p>${feedObjet.reponse}</p>
+            <button type="submit" onclick="supParent('${feedObjet.titre}')">Supprimer</button>
+        </div>
+
+    `;
+    }
+
     return divPost;
 }
 
@@ -125,5 +147,17 @@ function pullFormulaire() {
 
         postBlague.affichageDesFeeds();
     }
+}
+
+document.addEventListener("click", function (event) {
+    const element = event.target;
+
+
+})
+
+function supParent(id){
+    const element = document.getElementById(id);
+    element.remove();
+    postBlague.supPost(id);
 }
 //=============> Fin Fonctions <=============
