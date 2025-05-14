@@ -1,5 +1,6 @@
 main{
     position: relative;
+    margin-top: 8em;
 }
 #galerie{
     display: flex;
