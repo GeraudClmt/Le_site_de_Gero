@@ -1,0 +1,24 @@
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#containerEmoji{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.emoji:hover{
+    border: 2px solid red; 
+}
+.emoji{
+    height: 50%;
+    width: 10%;
+    margin: 0.2em;
+    text-decoration: none;
+    font-size: 5em;
+    text-align: center;
+    color: #00c2ac;
+}
