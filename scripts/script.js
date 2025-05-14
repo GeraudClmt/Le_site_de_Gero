@@ -179,9 +179,10 @@ function supParent(id) {
     storageFeeds = JSON.parse(localStorage.getItem("feeds"));
     console.log(storageFeeds);
     console.log(id);
-    for (const element of Object.keys(storageFeeds)){
-        if(storageFeeds[element].titre == id){
-            console.log("trouvé", element)
+    for (let i = 0; i < Object.keys(storageFeeds).length; i++){
+        if(storageFeeds[i].titre == id){
+            console.log("trouvé: ", element)
+            storageFeeds.splice(i, 1);
         }
     }
     localStorage.setItem("feeds", JSON.stringify(storageFeeds));
