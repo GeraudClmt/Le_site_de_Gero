@@ -154,6 +154,7 @@ function pullFormulaire() {
         if (!storageFeeds) {
             storageFeeds = [];
         }
+        
         const tableau = { titre: titre.value, type: type.value, question: question.value, reponse: reponse.value, personal: true }
         storageFeeds.push(tableau)
         localStorage.setItem("feeds", JSON.stringify(storageFeeds));
@@ -167,6 +168,7 @@ function pullFormulaire() {
 
         postBlague.affichageDesFeeds();
 
+        location.reload();
 
     }
 }
